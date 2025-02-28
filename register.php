@@ -1,5 +1,6 @@
 <?php
 include 'db.php';
+include 'include/header.php';
 
 if (isset($_GET['id'])) {
     $activity_id = $_GET['id'];
