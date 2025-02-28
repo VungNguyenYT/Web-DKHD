@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 27, 2025 at 10:18 AM
+-- Generation Time: Feb 28, 2025 at 07:42 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -40,9 +40,10 @@ CREATE TABLE `activities` (
 --
 
 INSERT INTO `activities` (`id`, `name`, `description`, `max_slots`, `registered_slots`) VALUES
-(1, 'Hoạt động về nguồn 1', 'Tham quan di tích lịch sử', 30, 0),
-(2, 'Hoạt động về nguồn 2', 'Giao lưu với cựu chiến binh', 20, 8),
-(3, 'hỗ trợ trang trí tết tại chùa Long Khánh', 'trang trí tết', 3, 3);
+(1, 'Hoạt động về nguồn', 'Tham quan Đền thờ Bác', 30, 1),
+(3, 'Hỗ trợ trang trí tết tại chùa Long Khánh', 'trang trí tết', 5, 3),
+(4, 'Về nguồn Ao bà om', 'Địa điểm Ao Bà Om\r\nThời gian: 8h', 4, 4),
+(5, 'Chuyến về nguồn tại Bảo tàng Văn hóa Dân tộc Khmer kết hợp tổ chức Dã ngoại tại khu di tích Ao Bà Om nhân dịp kỷ niệm 94 năm ngày Thành lập Đoàn Thanh niên Cộng sản Hồ Chí Minh (26/3/1931 – 26/3/2025)', '? Ngày diễn ra: Ngày 02/03/2025 (Chủ nhật)\r\n? Địa điểm: Bảo tàng Văn hóa Dân tộc Khmer, tọa lạc tại Khóm 4, Phường 8, TP Trà Vinh (nằm cạnh khu Di tích Ao Bà Om.\r\n?Trang phục: Áo Đoàn Thanh Niên + áo thun để tham gia trò chơi dã ngoại (khuyến khích áo tối màu).                                                                                                                                                                                                                              \r\n✅ Quyền lợi: Được lập danh sách cộng điểm  rèn luyện.', 2, 1);
 
 -- --------------------------------------------------------
 
@@ -64,16 +65,15 @@ CREATE TABLE `registrations` (
 --
 
 INSERT INTO `registrations` (`id`, `activity_id`, `full_name`, `student_id`, `class_id`, `zalo_phone`) VALUES
-(1, 2, 'Nguyễn Văn Vửng', 'aaa', 'aaa', 'aa'),
-(2, 2, 'đáa', 'dsaf', 'faaf', 'fdsf'),
-(4, 2, 'dsfds', 'f', 'fdssdf', 'fsdsf'),
-(5, 2, 'fssg', 'sffs', 'gdfdg', 'ssgf'),
-(6, 2, 'sgfsg', 'gfđg', 'fs', 'dgsgf'),
-(7, 2, 'sgfdg', 'fdgb', 'gfdg', 'dgfdg'),
-(8, 2, 'gfhsf', 'êt', 'têt', 'êrt'),
 (9, 3, 'Nguyễn Văn Vửng', '110121132', 'DA21TTA', '03474872012'),
 (10, 3, 'Nguyễn Thị Thùy Trang', '115621097', 'DA21DC', '3543435625'),
-(11, 3, 'A', 'A', 'A', 'A');
+(11, 3, 'A', 'A', 'A', 'A'),
+(12, 4, 'Nguyễn Văn Vửng', '110121132', 'DA21TTA', '0347482012'),
+(13, 4, 'Nguyễn Thị Thùy Trang', '115621097', 'DA21DC', '0123456789'),
+(14, 4, 'Nguyễn Thị Thùy Trang', '115621097', 'DA21DC', '0123456789'),
+(15, 4, 'Nguyễn Thị Thùy Trang', '115621097', 'DA21DC', '0123456789'),
+(16, 1, 'a', 'a', 'a', 'a'),
+(17, 5, 'Nguyễn Thị Thùy Trang', '115621097', 'DA21DC', '0347482012');
 
 --
 -- Indexes for dumped tables
@@ -100,13 +100,13 @@ ALTER TABLE `registrations`
 -- AUTO_INCREMENT for table `activities`
 --
 ALTER TABLE `activities`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `registrations`
 --
 ALTER TABLE `registrations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- Constraints for dumped tables
