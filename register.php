@@ -45,12 +45,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body style="font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 20px;">
 
     <!-- Tiêu đề -->
-     <div class="tieude" style="text-align: center; color: #333;"><h2>ĐĂNG KÝ HOẠT ĐỘNG</h2></div>
-    <!-- <h2 style="text-align: center; color: #333;">Đăng ký: <?php echo $activity['name']; ?></h2> -->
+    <div class="tieude" style="text-align: center; color: #333;"><h2>ĐĂNG KÝ HOẠT ĐỘNG</h2></div>
+
+    <!-- Hiển thị thông tin hoạt động -->
+    <div style="max-width: 400px; margin: 0 auto; padding: 20px; background: white; border-radius: 10px; box-shadow: 2px 2px 10px rgba(0,0,0,0.1);">
+        <h3 style="color: #007BFF; text-align: center;"><?php echo htmlspecialchars($activity['name']); ?></h3>
+        <p><strong>📄 Mô tả:</strong> <?php echo nl2br(htmlspecialchars($activity['description'])); ?></p>
+        <p><strong>📊 Số lượng đã đăng ký:</strong> <span style="color: #ff5722; font-weight: bold;">
+            <?php echo $activity['registered_slots']; ?>/<?php echo $activity['max_slots']; ?>
+        </span></p>
+    </div>
 
     <!-- Form đăng ký -->
     <form method="post" 
-          style="max-width: 400px; margin: 0 auto; padding: 20px; background: white; border-radius: 10px; box-shadow: 2px 2px 10px rgba(0,0,0,0.1);">
+          style="max-width: 400px; margin: 10px auto; padding: 20px; background: white; border-radius: 10px; box-shadow: 2px 2px 10px rgba(0,0,0,0.1);">
         
         <input type="hidden" name="activity_id" value="<?php echo $activity_id; ?>">
 

@@ -57,10 +57,10 @@ $result = $conn->query($sql);
            ➕ Thêm hoạt động
         </a>
 
-        <a href="register.php" 
+        <!-- <a href="register.php" 
            style="padding: 10px 20px; background: #28a745; color: white; text-decoration: none; border-radius: 5px;">
            📝 Đăng ký hoạt động
-        </a>
+        </a> -->
     </div>
 
 </body>
