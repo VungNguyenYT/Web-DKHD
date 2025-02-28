@@ -3,10 +3,17 @@ include 'db.php';
 include 'include/header.php';
 
 if (isset($_GET['id'])) {
-    $activity_id = $_GET['id'];
+    $activity_id = intval($_GET['id']); // Chuyển thành số nguyên để tránh lỗi SQL Injection
     $sql = "SELECT * FROM activities WHERE id = $activity_id";
     $result = $conn->query($sql);
-    $activity = $result->fetch_assoc();
+    
+    if ($result->num_rows > 0) {
+        $activity = $result->fetch_assoc();
+    } else {
+        $activity = null; // Gán null nếu không tìm thấy hoạt động
+    }
+} else {
+    $activity = null;
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
