@@ -25,12 +25,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 ('$activity_id', '$full_name', '$student_id', '$class_id', '$zalo_phone')";
         if ($conn->query($sql) === TRUE) {
             $conn->query("UPDATE activities SET registered_slots = registered_slots + 1 WHERE id = $activity_id");
-            echo "Đăng ký thành công!";
+            echo "<p style='color: green; text-align: center; font-weight: bold;'>✅ Đăng ký thành công!</p>";
         } else {
-            echo "Lỗi: " . $conn->error;
+            echo "<p style='color: red; text-align: center; font-weight: bold;'>❌ Lỗi: " . $conn->error . "</p>";
         }
     } else {
-        echo "Hoạt động này đã đủ số lượng!";
+        echo "<p style='color: red; text-align: center; font-weight: bold;'>⚠️ Hoạt động này đã đủ số lượng!</p>";
     }
 }
 ?>
@@ -41,23 +41,46 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <title>Đăng ký hoạt động</title>
 </head>
-<body>
-    <h2>Đăng ký: <?php echo $activity['name']; ?></h2>
-    <form method="post">
+<body style="font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 20px;">
+
+    <!-- Tiêu đề -->
+     <div class="tieude" style="text-align: center; color: #333;"><h2>ĐĂNG KÝ HOẠT ĐỘNG</h2></div>
+    <!-- <h2 style="text-align: center; color: #333;">Đăng ký: <?php echo $activity['name']; ?></h2> -->
+
+    <!-- Form đăng ký -->
+    <form method="post" 
+          style="max-width: 400px; margin: 0 auto; padding: 20px; background: white; border-radius: 10px; box-shadow: 2px 2px 10px rgba(0,0,0,0.1);">
+        
         <input type="hidden" name="activity_id" value="<?php echo $activity_id; ?>">
-        <label>Họ và tên:</label>
-        <input type="text" name="full_name" required>
-        <br>
-        <label>Mã số sinh viên:</label>
-        <input type="text" name="student_id" required>
-        <br>
-        <label>Mã lớp:</label>
-        <input type="text" name="class_id" required>
-        <br>
-        <label>Số điện thoại Zalo:</label>
-        <input type="text" name="zalo_phone" required>
-        <br>
-        <button type="submit">Đăng ký</button>
+
+        <label style="font-weight: bold;">Họ và tên:</label>
+        <input type="text" name="full_name" required 
+               style="width: 100%; padding: 10px; margin: 5px 0 10px; border: 1px solid #ccc; border-radius: 5px;">
+        
+        <label style="font-weight: bold;">Mã số sinh viên:</label>
+        <input type="text" name="student_id" required 
+               style="width: 100%; padding: 10px; margin: 5px 0 10px; border: 1px solid #ccc; border-radius: 5px;">
+        
+        <label style="font-weight: bold;">Mã lớp:</label>
+        <input type="text" name="class_id" required 
+               style="width: 100%; padding: 10px; margin: 5px 0 10px; border: 1px solid #ccc; border-radius: 5px;">
+        
+        <label style="font-weight: bold;">Số điện thoại Zalo:</label>
+        <input type="text" name="zalo_phone" required 
+               style="width: 100%; padding: 10px; margin: 5px 0 20px; border: 1px solid #ccc; border-radius: 5px;">
+
+        <!-- Nút đăng ký -->
+        <button type="submit" 
+                style="width: 100%; padding: 10px; background: #28a745; color: white; font-size: 16px; font-weight: bold; border: none; border-radius: 5px; cursor: pointer;">
+            ✅ Đăng ký
+        </button>
+
+        <!-- Nút trở lại -->
+        <a href="index.php" 
+           style="display: block; text-align: center; margin-top: 10px; padding: 10px; background: #007BFF; color: white; text-decoration: none; font-size: 16px; font-weight: bold; border-radius: 5px;">
+           🔙 Trở lại
+        </a>
     </form>
+
 </body>
 </html>
